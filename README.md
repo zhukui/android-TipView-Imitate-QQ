@@ -4,4 +4,4 @@
 #### detail : http://blog.csdn.net/cxmscb/article/details/52685864
 
 #### demo.gif :
-![](http://img.blog.csdn.net/20160927210018403)
+![](https://raw.githubusercontent.com/cxmscb/android-TipView-Imitate-QQ/master/cd.gif)
