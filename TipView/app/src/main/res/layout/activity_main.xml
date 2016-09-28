@@ -16,18 +16,6 @@
         android:layout_marginTop="218dp" />
 
     <Button
-        android:text="Button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button0"
-        android:layout_toStartOf="@+id/button0"
-        android:layout_marginRight="23dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button2" />
-
-    <Button
         android:text="Button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,4 +44,14 @@
         android:layout_marginRight="15dp"
         android:layout_marginEnd="15dp"
         android:id="@+id/button1" />
+
+    <Button
+        android:text="Button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

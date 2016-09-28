@@ -54,9 +54,9 @@ public class TipView extends View {
 
     private int mBorderMargin = dip2px(5); // 提示窗口与屏幕（根布局）的最小距离
     private int mItemWidth = dip2px(50); // 窗口Item的宽度
-    private int mItemHeight = dip2px(50); // 窗口Item的高度
+    private int mItemHeight = dip2px(48); // 窗口Item的高度
     private int mTriangleTop = dip2px(50); // 三角小标的顶点
-    private int mHalfTriangleWidth = dip2px(4); // 三角小标的半宽
+    private int mHalfTriangleWidth = dip2px(6); // 三角小标的半宽
     private int mItemBorder; // 三角小标与窗口Item的临界
     private int realLeft; // 窗口的left值
 
@@ -106,12 +106,12 @@ public class TipView extends View {
         // 当点击的纵坐标y比较小时（点击的位置比较上面）
         if (y/2<mItemHeight) {
             mStatus = STATUS_DOWN; // 令窗口在下方显示
-            mTriangleTop = y + dip2px(5); // 设置三角下标的顶点
-            mItemBorder = mTriangleTop + dip2px(6); // 设置三角下标和窗口方块的交界处
+            mTriangleTop = y + dip2px(6); // 设置三角下标的顶点
+            mItemBorder = mTriangleTop + dip2px(7); // 设置三角下标和窗口方块的交界处
         } else {
             mStatus = STATUS_UP;   // 同理如上
-            mTriangleTop = y - dip2px(5);
-            mItemBorder = mTriangleTop - dip2px(6);
+            mTriangleTop = y - dip2px(6);
+            mItemBorder = mTriangleTop - dip2px(7);
         }
 
         // 获取当Item数量两边对称时，窗口的Item值：
@@ -119,9 +119,13 @@ public class TipView extends View {
         if (realLeft < 0) {
             // 跑出屏幕左边的话，令值为距离值
             realLeft = mBorderMargin;
+            // 防止三角下标与方块分离
+            if(x-mCorner<=realLeft) x = realLeft+mCorner*2;
         } else if (realLeft + (mItemWidth*mItemList.size()) > mScreenWidth) {
             // 跑出屏幕右边的话，则减去溢出的宽度，再减去距离值
             realLeft -= realLeft + (mItemWidth*mItemList.size())-mScreenWidth+mBorderMargin;
+            // 防止三角下标与方块分离
+            if(x+mCorner>=realLeft+mItemWidth*mItemList.size()) x =  realLeft+mItemWidth*mItemList.size()-mCorner*2;
         }
 
     }
